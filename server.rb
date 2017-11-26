@@ -15,8 +15,7 @@ class DuxmlApp < Sinatra::Base
 
   post '/resolveXML' do
     doc = Saxer.sax request.body.read
-    answer = resolve(doc, params).to_s
-    puts "answer=#{answer}"
+    resolve(doc, params).to_s
   end
 
   post '/evaluateStr' do
