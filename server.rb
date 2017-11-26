@@ -6,9 +6,6 @@ include ReDuxml
 
 
 set :allow_origin, "*" #"https://duxml.herokuapp.com https://mysterious-castle-11258.herokuapp.com"
-set :allow_methods, "GET,HEAD,POST"
-set :allow_headers, "Origin, X-Requested-With, Content-Type, Accept"
-set :expose_headers, "location,link"
 
 post '/resolveXML' do
   doc = Saxer.sax request.body.read
