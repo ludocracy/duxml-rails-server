@@ -1,15 +1,33 @@
 require 'sinatra'
 require 're_duxml'
+require 'sinatra/cross_origin'
 
-include ReDuxml
+class DuxmlApp < Sinatra::Base
+  include ReDuxml
 
-post '/resolveXML' do
-  doc = Saxer.sax request.body.read
-  answer = resolve(doc, params).to_s
-  puts "answer=#{answer}"
-end
+  configure do
+    enable :cross_origin
+  end
 
-post '/evaluateStr' do
-  str = request.body.read
-  Evaluator.new.evaluate(str, params).to_s
+  before do
+    response.headers['Access-Control-Allow-Origin'] = '*'
+  end
+
+  post '/resolveXML' do
+    doc = Saxer.sax request.body.read
+    answer = resolve(doc, params).to_s
+    puts "answer=#{answer}"
+  end
+
+  post '/evaluateStr' do
+    str = request.body.read
+    Evaluator.new.evaluate(str, params).to_s
+  end
+
+  options "*" do
+   response.headers["Allow"] = "GET, POST, OPTIONS"
+   response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
+   response.headers["Access-Control-Allow-Origin"] = "*"
+   200
+ end
 end
