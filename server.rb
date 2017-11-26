@@ -12,6 +12,10 @@ before do
   response.headers['Access-Control-Allow-Origin'] = '*'
 end
 
+after do
+  response.headers['Access-Control-Allow-Origin'] = '*'
+end
+
 options "*" do
   response.headers["Allow"] = "GET, POST, OPTIONS"
   response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
