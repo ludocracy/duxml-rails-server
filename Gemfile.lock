@@ -40,7 +40,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rack
   re_duxml
   sinatra
   sinatra-cross_origin
