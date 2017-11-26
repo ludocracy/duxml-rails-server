@@ -1,14 +1,17 @@
 require 'sinatra'
 require 're_duxml'
 
+include ReDuxml
+
+@e = Evaluator.new
+
 post '/resolveXML' do
-  xml = request.body.read
-  # TODO load xml file
-  # instantiate
-  # respond to client
+  doc = Saxer.sax request.body.read
+  puts params
+  resolve(doc, params).to_s
 end
 
 post '/evaluateStr' do
   str = request.body.read
-  ReDuxml::Evaluator.new.evaluate(str, params)
+  Evaluator.new.evaluate(str, params)
 end
