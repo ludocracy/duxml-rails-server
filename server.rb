@@ -20,11 +20,13 @@ options "*" do
 end
 
 post '/resolveXML' do
+  cross_origin
   doc = Saxer.sax request.body.read
   resolve(doc, params).to_s
 end
 
 post '/evaluateStr' do
+  cross_origin
   str = request.body.read
   Evaluator.new.evaluate(str, params).to_s
 end
