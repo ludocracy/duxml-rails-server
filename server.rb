@@ -5,9 +5,9 @@ require 'sinatra/cors'
 include ReDuxml
 
 
-set :allow_origin, "https://duxml.herokuapp.com"
+set :allow_origin, "*" #"https://duxml.herokuapp.com https://mysterious-castle-11258.herokuapp.com"
 set :allow_methods, "GET,HEAD,POST"
-set :allow_headers, "content-type,if-modified-since"
+set :allow_headers, "Origin, X-Requested-With, Content-Type, Accept"
 set :expose_headers, "location,link"
 
 post '/resolveXML' do
