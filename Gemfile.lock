@@ -1,0 +1,45 @@
+GEM
+  specs:
+    ast (2.3.0)
+    con_duxml (0.4.0)
+      duxml (~> 0.8)
+      ruby-dita (~> 0.4)
+    duxml (0.8.9)
+      ox (~> 2.3)
+      rubyXL (~> 3.3)
+    mini_portile2 (2.3.0)
+    mustermann (1.0.1)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
+    ox (2.4.5)
+    rack (2.0.3)
+    rack-protection (2.0.0)
+      rack
+    re_duxml (0.2.0)
+      ast (~> 2.2)
+      con_duxml (~> 0.4.0)
+      duxml (~> 0.8.9)
+      symbolic (~> 0.3)
+    ruby-dita (0.5.1)
+      duxml (~> 0.8)
+    rubyXL (3.3.21)
+      nokogiri (>= 1.4.4)
+      rubyzip (>= 1.1.6)
+    rubyzip (1.2.0)
+    sinatra (2.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0)
+      tilt (~> 2.0)
+    symbolic (0.3.8)
+    tilt (2.0.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  re_duxml
+  sinatra
+
+BUNDLED WITH
+   1.13.6
