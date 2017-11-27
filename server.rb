@@ -3,6 +3,11 @@ require 're_duxml'
 
 include ReDuxml
 
+options '*' do
+    response.headers['Access-Control-Allow-Origin'] = 'https://dry-draw.firebaseapp.com'
+    response['Access-Control-Allow-Origin'] = 'https://dry-draw.firebaseapp.com'
+end
+
 post '/resolveXML' do
   response.headers['Access-Control-Allow-Origin'] = 'https://dry-draw.firebaseapp.com'
   response['Access-Control-Allow-Origin'] = 'https://dry-draw.firebaseapp.com'
