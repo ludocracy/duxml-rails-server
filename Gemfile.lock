@@ -16,7 +16,7 @@ GEM
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
-    re_duxml (0.2.1)
+    re_duxml (0.2.2)
       ast (~> 2.2)
       con_duxml (~> 0.4.0)
       duxml (~> 0.8.9)
@@ -40,7 +40,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  re_duxml (~> 0.2.1)
+  re_duxml (~> 0.2.2)
   sinatra
   sinatra-cors
 
