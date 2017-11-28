@@ -25,6 +25,5 @@ post '/evaluateStr' do
 
   str = request.body.read
   result = Evaluator.new.evaluate(str, params || {})
-  puts "evaluate(#{str}, #{params}) => #{result.to_s}"
   result.to_s
 end
