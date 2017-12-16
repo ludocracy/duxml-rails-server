@@ -19,10 +19,15 @@ end
 post '/resolveJSON' do
   json = JSON.parse(request.body.read)['json']
   xml = Element.new('e')
-  puts json.to_json
   xml << json.to_json
-  result = resolve(xml, params)
-  result.text
+  result = resolve(xml, params).text
+  # TODO this is temporary and assumes a flat JSON object corresponding to flat SVG XML
+  resolvedJSON = JSON.parse(result)
+  filteredJSON = resolvedJSON.keep_if do |obj|
+    obj.delete('if') if obj['if'] == 'true'
+    obj['if'] != 'false'
+  end
+  filteredJSON.to_json
 end
 
 post '/resolveXML' do
